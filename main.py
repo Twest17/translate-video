@@ -133,8 +133,6 @@ class MyGUI:
             print(yt.length, self.estimate.get())
         except pytube.exceptions.RegexMatchError:
             pass
-        except TypeError as e:
-            print(e)
 
 
 if __name__ == '__main__':
