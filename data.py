@@ -21,22 +21,24 @@ languages = {'Afrikaans': 'af', 'Arabic': 'ar', 'Bulgarian': 'bg', 'Bengali': 'b
 
 
 def get_params():
-    estimates = np.array([[37, 18], [172, 68], [154, 66], [154, 74], [1224, 577],
+    estimates = np.array([[37, 18], [172, 68], [1224, 577], [154, 197],
                           [1551, 682], [37, 37], [37, 39], [37, 20], [6910, 6263],
-                          [16066, 13819], [5162, 3849], [7961, 6902], [6910, 5861]])
+                          [16066, 13819], [5162, 3849], [7961, 6902], [6910, 5861],
+                          ])
 
     lr = LinearRegression()
-    x = estimates[:, 0].reshape(-1, 1)
+    x = np.sqrt(estimates[:, 0].reshape(-1, 1))
     scaler = StandardScaler()
     x_norm = scaler.fit_transform(x)
     y = estimates[:, 1].reshape(-1, )
     lr.fit(x_norm, y)
     b = lr.intercept_
-    w = lr.coef_
+    w = lr.coef_[0]
     return w, b
 
 
-# param1, param2 = get_params()
+param1, param2 = get_params()
+print(param1, param2)
 param1 = 0.45184007
 param2 = -0.4095843748955872
 
