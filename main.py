@@ -90,7 +90,7 @@ class MyGUI:
         est_label.grid(column=2, row=7, sticky=W)
 
         self.status_var = StringVar()
-        statusbar = ttk.Label(mainframe, textvariable=self.status_var)
+        statusbar = ttk.Label(mainframe, textvariable=self.status_var, wraplength=250)
         statusbar.grid(column=2, row=8, sticky=W)
 
         self.dirname = ''
