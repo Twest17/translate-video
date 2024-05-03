@@ -1,4 +1,4 @@
-from data import languages, W, B
+from data import languages, param1, param2
 from translate_video import *
 import tkinter as tk
 from tkinter import *
@@ -128,11 +128,13 @@ class MyGUI:
     def estimate_time(self, *args):
         try:
             yt = YouTube(self.url.get())
-            self.estimate.set(round(1.3 * (yt.length * W + B), 2))
+            self.estimate.set(round(1.3 * (yt.length * param1 + param2), 2))
             self.est_text.set(f'Estimated time: {self.estimate.get()} sec / {self.estimate.get()/60:.2f} min')
             print(yt.length, self.estimate.get())
         except pytube.exceptions.RegexMatchError:
             pass
+        except TypeError as e:
+            print(e)
 
 
 if __name__ == '__main__':

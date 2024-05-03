@@ -33,9 +33,10 @@ def get_params():
     lr.fit(x_norm, y)
     b = lr.intercept_
     w = lr.coef_
-    return b, w
+    return w, b
 
 
-# b, w = get_params()
-B = -0.4095843748955872
-W = 0.45184007
+# param1, param2 = get_params()
+param1 = 0.45184007
+param2 = -0.4095843748955872
+
